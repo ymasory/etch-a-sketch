@@ -13,7 +13,15 @@ class SketchApp extends ScalatraServlet
 
   implicit protected val jsonFormats: Formats = DefaultFormats
 
-  get("/") {
-    "hello world"
+  atmosphere("/") {
+    new AtmosphereClient {
+      def receive = {
+        case TextMessage(text) => send(text.reverse)
+        case JsonMessage(json) =>
+      }
+    }
   }
 }
+
+
+
