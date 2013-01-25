@@ -21,10 +21,15 @@ object EtchasketchBuild extends Build {
       version := Version,
       scalaVersion := ScalaVersion,
       resolvers += "Sonatype OSS Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/",
+      resolvers += "Sonatype OSS Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/",
+      resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
       libraryDependencies ++= Seq(
+        "org.eclipse.jetty" % "jetty-websocket" % "8.1.8.v20121106" % "container",
+        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar")),
         "org.scalatra" % "scalatra" % ScalatraVersion,
         "org.scalatra" % "scalatra-scalate" % ScalatraVersion,
         "org.scalatra" % "scalatra-specs2" % ScalatraVersion % "test",
+        "org.scalatra" % "scalatra-atmosphere" % "2.2.0-SNAPSHOT",
         "ch.qos.logback" % "logback-classic" % "1.0.6" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "8.1.8.v20121106" % "container",
         "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
