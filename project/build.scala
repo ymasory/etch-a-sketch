@@ -20,8 +20,15 @@ object EtchasketchBuild extends Build {
       name := Name,
       version := Version,
       scalaVersion := ScalaVersion,
-      resolvers += "Sonatype OSS Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/",
+      resolvers ++= Seq(
+        "Sonatype OSS Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/",
+        "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+      ),
       libraryDependencies ++= Seq(
+        "org.scalatra" % "scalatra-atmosphere" % "2.2.0-RC3",
+        "org.scalatra" % "scalatra-json" % "2.2.0-RC3",
+        "org.json4s"   %% "json4s-jackson" % "3.1.0",
+        "org.eclipse.jetty" % "jetty-websocket" % "8.1.8.v20121106" % "container",
         "org.scalatra" % "scalatra" % ScalatraVersion,
         "org.scalatra" % "scalatra-scalate" % ScalatraVersion,
         "org.scalatra" % "scalatra-specs2" % ScalatraVersion % "test",
