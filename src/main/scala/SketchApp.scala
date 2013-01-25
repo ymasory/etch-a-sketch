@@ -16,8 +16,12 @@ class SketchApp extends ScalatraServlet
   atmosphere("/") {
     new AtmosphereClient {
       def receive = {
-        case TextMessage(text) => send(text.reverse)
+        case TextMessage(text) => {
+          println(text)
+          send(text.reverse)
+        }
         case JsonMessage(json) =>
+        case msg => println("ignoring " + msg)
       }
     }
   }
