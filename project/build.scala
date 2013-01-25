@@ -5,7 +5,7 @@ object EtchasketchBuild extends Build {
   val Organization = "sketch"
   val Name = "etch-a-sketch"
   val Version = "0.1.0-SNAPSHOT"
-  val ScalaVersion = "2.10.0"
+  val ScalaVersion = "2.9.2"
   val ScalatraVersion = "2.2.0-RC3"
 
   import java.net.URL
