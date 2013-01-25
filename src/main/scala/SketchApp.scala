@@ -16,8 +16,9 @@ class SketchApp extends ScalatraServlet
   atmosphere("/") {
     new AtmosphereClient {
       def receive = {
-        case JsonMessage(json) => {
+        case TextMessage(json) => {
           broadcast(json)
+          send(json)
           println("broadcasted: " + json)
         }
         case msg => println("ignoring " + msg)
