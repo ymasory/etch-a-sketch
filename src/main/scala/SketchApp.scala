@@ -20,7 +20,7 @@ class SketchApp extends ScalatraServlet
           println(text)
           send(text.reverse)
         }
-        case JsonMessage(json) =>
+        case JsonMessage(json) => println("ignoring json: " + json)
         case msg => println("ignoring " + msg)
       }
     }
